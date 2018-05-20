@@ -1,0 +1,31 @@
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "Page describe how i'am, what i do and what love",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmitri-jurovski/about-me.git"
+  },
+  "author": "DJ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmitri-jurovski/about-me/issues"
+  },
+  "homepage": "https://github.com/dmitri-jurovski/about-me#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "bootstrap": "^4.1.1",
+    "browser-sync": "^2.24.4",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0"
+  }
+}

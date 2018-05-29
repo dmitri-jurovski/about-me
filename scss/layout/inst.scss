@@ -1,0 +1,20 @@
+.ins-row {
+	
+	div {
+		@extend .col-md-4;
+		@extend .mb-5;
+		
+		img {
+			@extend .img-fluid;
+		}
+	} // div End
+} // ins-row End
+
+
+
+
+
+
+
+
+

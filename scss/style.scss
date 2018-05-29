@@ -1,6 +1,28 @@
 // Option A: Include all of Bootstrap
 
 @import "node_modules/bootstrap/scss/bootstrap";
+@import "scss/layout/inst.scss";
+
+
+/*
+ * Custom translucent site header
+ */
+
+.site-header {
+  background-color: rgba(0, 0, 0, .85);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  backdrop-filter: saturate(180%) blur(20px);
+}
+.site-header a {
+  color: #999 !important;
+  transition: ease-in-out color .15s !important;
+}
+.site-header a:hover {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+
 
 
 

@@ -485,7 +485,7 @@ pre {
     padding-left: 0; }
 
 .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
-.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
+.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, dl.cv-row dt, dl.cv-row dd, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
 .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .ins-row div, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
 .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
 .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
@@ -656,7 +656,7 @@ pre {
   .col-sm-5 {
     flex: 0 0 41.66667%;
     max-width: 41.66667%; }
-  .col-sm-6 {
+  .col-sm-6, dl.cv-row dt, dl.cv-row dd {
     flex: 0 0 50%;
     max-width: 50%; }
   .col-sm-7 {
@@ -4295,7 +4295,7 @@ button.bg-danger:hover,
 button.bg-danger:focus {
   background-color: #bd2130 !important; }
 
-.bg-light {
+.bg-light, section.page-section {
   background-color: #f8f9fa !important; }
 
 a.bg-light:hover, a.bg-light:focus,
@@ -4991,7 +4991,7 @@ button.bg-dark:focus {
 .position-static {
   position: static !important; }
 
-.position-relative {
+.position-relative, section.page-section {
   position: relative !important; }
 
 .position-absolute {
@@ -5260,7 +5260,7 @@ button.bg-dark:focus {
 .px-2 {
   padding-left: 0.5rem !important; }
 
-.p-3 {
+.p-3, section.page-section {
   padding: 1rem !important; }
 
 .pt-3,
@@ -5563,7 +5563,7 @@ button.bg-dark:focus {
   .ml-md-2,
   .mx-md-2 {
     margin-left: 0.5rem !important; }
-  .m-md-3 {
+  .m-md-3, section.page-section {
     margin: 1rem !important; }
   .mt-md-3,
   .my-md-3 {
@@ -5675,7 +5675,7 @@ button.bg-dark:focus {
   .pl-md-4,
   .px-md-4 {
     padding-left: 1.5rem !important; }
-  .p-md-5 {
+  .p-md-5, section.page-section {
     padding: 3rem !important; }
   .pt-md-5,
   .py-md-5 {
@@ -6086,13 +6086,13 @@ button.bg-dark:focus {
   text-overflow: ellipsis;
   white-space: nowrap; }
 
-.text-left {
+.text-left, dl.cv-row dd {
   text-align: left !important; }
 
-.text-right {
+.text-right, dl.cv-row dt {
   text-align: right !important; }
 
-.text-center {
+.text-center, section.page-section {
   text-align: center !important; }
 
 @media (min-width: 576px) {
@@ -6297,5 +6297,8 @@ a.text-dark:hover, a.text-dark:focus {
 .site-header a:hover {
   color: #fff !important;
   text-decoration: none !important; }
+
+section.page-section {
+  overflow: hidden; }
 
 /*# sourceMappingURL=style.css.map */

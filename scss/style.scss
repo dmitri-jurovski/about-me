@@ -22,6 +22,29 @@
   text-decoration: none !important;
 }
 
+section.page-section {
+	@extend .position-relative;
+	@extend .p-3;
+	@extend .p-md-5;
+	@extend .m-md-3;
+	@extend .text-center;
+	@extend .bg-light;
+	overflow: hidden;
+}
+
+dl.cv-row {
+	dt {
+		@extend .col-sm-6;
+		@extend .text-right;
+	}
+	dd {
+		@extend .col-sm-6;
+		@extend .text-left;
+	}
+}
+
+      
+
 
 
 

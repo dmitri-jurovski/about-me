@@ -6475,16 +6475,17 @@ $('#mainMenu a').on('click', function(e){
 
 });
 $(document).ready(function(){
-$('#resumeButton').on('click', function(e){
 	
-	$('main').load('resume.html');
-	$("html, body").animate({ scrollTop: 0 }, "slow");
-});
+	$('#resumeButton').on('click', function(e){
+		
+		$('main').load('resume.html');
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	});
 
 
-$('#scrollTop').on('click', function(e){
-	$("html, body").animate({ scrollTop: 0 }, "slow");
-});
+	$('#scrollTop').on('click', function(e){
+		$("html, body").animate({ scrollTop: 0 }, "slow");
+	});
 
 });
 
@@ -6493,21 +6494,22 @@ $('#scrollTop').on('click', function(e){
 function instLoad(token){
 
 	$( "#perRow div" ).remove();
+	
  	$.ajax({
-	url: 'https://api.instagram.com/v1/users/self/media/recent',
-	dataType: 'jsonp',
-	type: 'GET',
-	data: {access_token: token, count: 9},
-	success: function(data){
- 		console.log(data.data);
-		for( x in data.data ){
-			$('#perRow').append('<div class"col-md-4"><a href="'+data.data[x].link+'" target="_blanck"><img class"img-fluid" src="'+data.data[x].images.standard_resolution.url+'"></a></div>').fadeIn(4000);
+		url: 'https://api.instagram.com/v1/users/self/media/recent',
+		dataType: 'jsonp',
+		type: 'GET',
+		data: {access_token: token, count: 9},
+		success: function(data){
+	 		console.log(data.data);
+			for( x in data.data ){
+				$('#perRow').append('<div class"col-md-4"><a href="'+data.data[x].link+'" target="_blanck"><img class"img-fluid" src="'+data.data[x].images.standard_resolution.url+'"></a></div>').fadeIn(4000);
+			}
+		},
+		error: function(data){
+			console.log(data);
 		}
-	},
-	error: function(data){
-		console.log(data);
-	}
-});
+	});
 }
 
 

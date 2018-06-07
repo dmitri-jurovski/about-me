@@ -1,11 +1,10 @@
 // Option A: Include all of Bootstrap
 
 @import "node_modules/bootstrap/scss/bootstrap";
-@import "scss/layout/inst.scss";
 
 
 /*
- * Custom translucent site header
+ * Custom scss
  */
 
 .site-header {
@@ -43,6 +42,17 @@ dl.cv-row {
 	}
 }
 
+.ins-row {
+	
+	div {
+		@extend .col-md-4;
+		@extend .mb-5;
+		
+		img {
+			@extend .img-fluid;
+		}
+	} // div End
+} // ins-row End
       
 
 

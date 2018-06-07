@@ -6,14 +6,15 @@ var gulp = require('gulp'),
   uglify = require('gulp-uglify'),
   rename = require('gulp-rename'),
     maps = require('gulp-sourcemaps'),
-     del = require('del'),
     sync = require('browser-sync').create();
 
 // JS Task scripts
 gulp.task('scripts', function() {
     return gulp.src([
+      'js/jquery-3.3.1.min.js',
       'js/popper.js',
       'node_modules/bootstrap/dist/js/bootstrap.js',
+      'js/fontawesome-all.min.js',
       'js/custom.js'
       ])
     .pipe(maps.init())
@@ -21,6 +22,7 @@ gulp.task('scripts', function() {
     .pipe(maps.write('./'))
     .pipe(gulp.dest('js'));
 });
+
 
 gulp.task('minify', ['scripts'], function() {
   return gulp.src("js/scripts.js")
@@ -48,7 +50,7 @@ gulp.task('watchFiles', function() {
     });
 
     gulp.watch('scss/**/*.scss', ['styles']);
-    gulp.watch('js/**/*.js', ['scripts']);
+    gulp.watch('js/**/*.js', ['minify']);
     gulp.watch("**/*.html").on('change', sync.reload);
 });
 

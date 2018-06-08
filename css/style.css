@@ -6285,6 +6285,13 @@ a.text-dark:hover, a.text-dark:focus {
 /*
  * Custom scss
  */
+#mainMenu a,
+#mainMenu img {
+  font-size: 1.6em; }
+
+.box-shadow {
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05); }
+
 .site-header {
   background-color: rgba(0, 0, 0, 0.85);
   -webkit-backdrop-filter: saturate(180%) blur(20px);

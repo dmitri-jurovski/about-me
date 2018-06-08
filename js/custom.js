@@ -57,7 +57,9 @@ $(document).ready(function(){
 
 $(document).ready(function(){
     $('#personal').on('click', function(){
-
+    	console.log(this);
+    	$(".instagram button").removeClass("active");
+    	$(this).addClass("active");
     	const personal = '3970588176.1677ed0.7477ad46f0224a60b9ab308f4b209d90';
         instLoad(personal);
         console.log("Personal Instagram Photos Load");
@@ -65,7 +67,8 @@ $(document).ready(function(){
 
 
     $('#creation').on('click', function(){
-
+    	$(".instagram button").removeClass("active");
+    	$(this).addClass("active");
     	const creation = '7562922180.1677ed0.fc4e273eea1049be86e4a335cb642dbc';   
         instLoad(creation);
         console.log("Creation Instagram Photos Load");

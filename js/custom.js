@@ -66,7 +66,8 @@ $(document).ready(function(){
     });
 
 
-    $('#creation').on('click', function(){
+    $('#creation').on('click', function(e){
+    	console.log(e.innerHTML);
     	$(".instagram button").removeClass("active");
     	$(this).addClass("active");
     	const creation = '7562922180.1677ed0.fc4e273eea1049be86e4a335cb642dbc';   

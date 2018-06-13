@@ -7,28 +7,34 @@ var gulp = require('gulp'),
     maps = require('gulp-sourcemaps'),
     sync = require('browser-sync').create();
 
-// JS Task scripts
-gulp.task('scripts', function() {
-    return gulp.src([
-      'js/jquery-3.3.1.min.js',
-      'js/popper.js',
-      'node_modules/bootstrap/dist/js/bootstrap.js',
-      'js/fontawesome-all.min.js',
-      'js/custom.js'
-      ])
-    .pipe(maps.init())
-    .pipe(concat('scripts.js'))
-    .pipe(maps.write('./'))
-    .pipe(gulp.dest('js'));
-});
+
+var options = {
+  src: 'src',
+  dist: 'dist'
+}
+
+// // JS Task scripts
+// gulp.task('scripts', function() {
+//     return gulp.src([
+//       'js/jquery-3.3.1.min.js',
+//       'js/popper.js',
+//       'node_modules/bootstrap/dist/js/bootstrap.js',
+//       'js/fontawesome-all.min.js',
+//       'js/custom.js'
+//       ])
+//     .pipe(maps.init())
+//     .pipe(concat('scripts.js'))
+//     .pipe(maps.write('./'))
+//     .pipe(gulp.dest('js'));
+// });
 
 
 gulp.task('styles', function() {
-  return gulp.src("scss/style.scss")
+  return gulp.src(options.src + "/scss/style.scss")
       .pipe(maps.init())
       .pipe(sass())
       .pipe(maps.write('./'))
-      .pipe(gulp.dest('css'))
+      .pipe(gulp.dest(options.src + '/css'))
       .pipe(sync.stream());
 })
 
@@ -36,12 +42,12 @@ gulp.task('styles', function() {
 gulp.task('watchFiles', function() {
 
     sync.init({
-        server: "./",
+        server: "./src",
         open: false
     });
 
-    gulp.watch('scss/**/*.scss', ['styles']);
-    gulp.watch('js/**/*.js', ['scripts']);
+    gulp.watch(options.src + '/scss/**/*.scss', ['styles']);
+    //gulp.watch(options.src + '/js/**/*.js', ['scripts']);
     gulp.watch("**/*.html").on('change', sync.reload);
 });
 

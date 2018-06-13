@@ -21,8 +21,41 @@ function instLoad(token){
 
 
 
-		
+
 	});
+}
+
+    $(document).ready(function(){
+    
+    $('#personal').on('click', function(){
+      
+      activeBottun(this);
+
+      const personal = '3970588176.1677ed0.7477ad46f0224a60b9ab308f4b209d90';
+        instLoad(personal);
+        console.log("Personal Instagram Photos Load");
+    });
+
+
+    $('#creation').on('click', function(e){
+      
+      activeBottun(this);
+
+      
+      const creation = '7562922180.1677ed0.fc4e273eea1049be86e4a335cb642dbc';   
+        instLoad(creation);
+        console.log("Creation Instagram Photos Load");
+    });
+
+});
+
+
+
+
+
+function activeBottun(el) {
+	$(".instagram button").removeClass("active");
+      $(el).addClass("active");
 }
 
 // Tooltips

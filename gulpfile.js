@@ -1,11 +1,16 @@
 "use strict";
 
-var gulp = require('gulp'),
-    sass = require('gulp-sass'),
-  concat = require('gulp-concat'),
-  rename = require('gulp-rename'),
-    maps = require('gulp-sourcemaps'),
-    sync = require('browser-sync').create();
+  var gulp = require('gulp'),
+      sass = require('gulp-sass'),
+    rename = require('gulp-rename'),
+      maps = require('gulp-sourcemaps'),
+       del = require('del'),
+    useref = require('gulp-useref'),
+       iff = require('gulp-if'),
+    uglify = require('gulp-uglify'),
+ minifyCss = require('gulp-clean-css'),
+   htmlmin = require('gulp-htmlmin'),
+      sync = require('browser-sync').create();
 
 
 var options = {
@@ -13,24 +18,9 @@ var options = {
   dist: 'dist'
 }
 
-// // JS Task scripts
-// gulp.task('scripts', function() {
-//     return gulp.src([
-//       'js/jquery-3.3.1.min.js',
-//       'js/popper.js',
-//       'node_modules/bootstrap/dist/js/bootstrap.js',
-//       'js/fontawesome-all.min.js',
-//       'js/custom.js'
-//       ])
-//     .pipe(maps.init())
-//     .pipe(concat('scripts.js'))
-//     .pipe(maps.write('./'))
-//     .pipe(gulp.dest('js'));
-// });
-
-
+// Sass compile to css
 gulp.task('styles', function() {
-  return gulp.src(options.src + "/scss/style.scss")
+  return gulp.src(options.src + "/scss/application.scss")
       .pipe(maps.init())
       .pipe(sass())
       .pipe(maps.write('./'))
@@ -38,31 +28,41 @@ gulp.task('styles', function() {
       .pipe(sync.stream());
 })
 
-// Watch & Serve
+// Useref
+gulp.task('usehtml',['styles'], function() {
+  return gulp.src(options.src + '/**/*.html')
+      .pipe(useref())
+      .pipe(iff('*.js', uglify()))
+      .pipe(iff('*.css', minifyCss()))
+      .pipe(iff('*.html', htmlmin({collapseWhitespace: true})))
+      .pipe(gulp.dest(options.dist));
+});
+
+// Watch & Serve Task
 gulp.task('watchFiles', function() {
 
     sync.init({
-        server: "./src",
+        server: "./dist",
         open: false
     });
 
     gulp.watch(options.src + '/scss/**/*.scss', ['styles']);
-    //gulp.watch(options.src + '/js/**/*.js', ['scripts']);
-    gulp.watch("**/*.html").on('change', sync.reload);
+    gulp.watch(options.src + '**/*.html').on('change', sync.reload);
 });
 
 gulp.task('serve', ['watchFiles']);
 
-
-// Build & Clean
-gulp.task('build', ['minify', 'styles'], function() {
-    return gulp.src(['css/style.css', 'js/scripts.min.js', 'index.html',
-     'img/**', 'fonts/**'], { base: './'})
-      .pipe(gulp.dest('dist'));
-}); 
+// Build task
+gulp.task("build", ['usehtml'], function() {
+  return gulp.src([
+    options.src + "/img/**",
+    options.src + "/fonts/**",
+    ], { base: options.src})
+    .pipe(gulp.dest(options.dist));
+});
 
 gulp.task('clean', function() {
-    del(['dist', 'css/style.css*', 'js/scripts*.js*']);
+    del(['dist', options.src + '/css']);
 });
 
 gulp.task('default', ['clean'], function() {

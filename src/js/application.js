@@ -18,6 +18,10 @@ function instLoad(token){
 		error: function(data){
 			console.log(data);
 		}
+
+
+
+		
 	});
 }
 
@@ -26,13 +30,13 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
 
-$('main').load('home.html');
+$('main').load('template/home.html');
 
 // Main Menu
 $('#mainMenu a').on('click', function(e){
 	
 	$('#mainMenu a').removeClass("active");
-    $('main').load(e.currentTarget.id + '.html');
+    $('main').load('template/' + e.currentTarget.id + '.html');
 	$(this).addClass('active');
 	console.log('Load part webpage');
 	$("html, body").animate({ scrollTop: 0 }, "slow");

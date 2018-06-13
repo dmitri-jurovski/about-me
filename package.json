@@ -21,10 +21,15 @@
     "@fortawesome/fontawesome": "^1.1.8",
     "bootstrap": "^4.1.1",
     "browser-sync": "^2.24.4",
+    "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-if": "^2.0.2",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^4.0.1",
-    "gulp-sourcemaps": "^2.6.4"
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "^3.0.0",
+    "gulp-useref": "^3.1.5"
   }
 }
